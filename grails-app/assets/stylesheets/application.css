@@ -56,3 +56,11 @@ body {
     position: absolute;
     left:190px;
 }
+
+.metrics {
+    margin-top: 25px;
+    margin-left:15%;
+    width:66%;
+    border: 1px solid #009900;
+    border-radius: 5px;
+}

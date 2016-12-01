@@ -10,7 +10,9 @@ class Book {
     static constraints = {
     }
     
-
+    SortedSet metrics
+    static hasMany = [metrics: Metrics]
+    
     String title, author, image=AVAILABLE_ICON, act=AVAILABLE_ACTION_NAME
     int year
     String regnumber

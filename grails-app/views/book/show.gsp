@@ -27,9 +27,29 @@
                 <input type="submit" value="Return book"/>
                 <input type="hidden" value="${book.id}" name="id"/>
             </g:form> 
-            </div>
-            
+            </div>       
         </g:if>
-
+        <div class="metrics">
+            <h1>Book lending history</h1>
+            <g:if test="${book.metrics!=null && !book.metrics.isEmpty()}">
+              <table>
+                <tr>
+                    <th>Lent out</th>
+                    <th>Returned</th>
+                    <th>By Who</th>
+                </tr>
+                <g:each in="${book.metrics}" var="m">
+                    <tr>
+                    <td>${m.lentoutOn}</td>
+                    <td>${m.returnedOn}</td>
+                    <td>${m.borrower.firstName}&nbsp;${m.borrower.lastName}</td>
+                </tr>
+                </g:each>
+            </table>  
+            </g:if>
+            <g:else>
+                <p>No history available for this book</p>
+            </g:else>
+        </div>
     </body>
 </html>

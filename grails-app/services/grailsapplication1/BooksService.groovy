@@ -16,6 +16,10 @@ class BooksService {
             b.act=Book.RETURN_ACTION_NAME
             b.image=Book.RETURN_ICON
             u.addToBooks(b)
+            //create metrics for the lendout
+            def m = new Metrics(lentoutOn: new Date(), borrower: u)
+            //m.save()
+            b.addToMetrics(m)
             b.save()
             u.save()
         }
@@ -28,6 +32,10 @@ class BooksService {
               book.image=Book.AVAILABLE_ICON
               if(theBorrower!=null){
                   theBorrower.removeFromBooks(book)
+                  def m = Metrics.findByBookAndReturnedOnIsNull(book)
+                  if(m!=null){
+                      m.returnedOn=new Date()
+                  }
               }
               theBorrower.save()
               book.save()

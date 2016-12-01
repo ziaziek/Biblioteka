@@ -1,0 +1,10 @@
+create sequence hibernate_sequence start 1 increment 1;
+create table book (id int8 not null, version int8 not null, act varchar(255) not null, author varchar(255) not null, image varchar(255) not null, regnumber varchar(255) not null, title varchar(255) not null, year int4 not null, primary key (id));
+create table borrower (id int8 not null, version int8 not null, first_name varchar(255) not null, last_name varchar(255) not null, regnumber varchar(255) not null, primary key (id));
+create table borrower_book (borrower_books_id int8 not null, book_id int8);
+create table metrics (id int8 not null, version int8 not null, book_id int8 not null, borrower_id int8 not null, lentout_on timestamp not null, notes varchar(255) not null, returned_on timestamp, primary key (id));
+create table user (id int8 not null, version int8 not null, primary key (id));
+alter table borrower_book add constraint FK9re41xppeasef9hd7eptpg7vt foreign key (book_id) references book;
+alter table borrower_book add constraint FKnqf7qb416ogtqiv3l6n0mliwx foreign key (borrower_books_id) references borrower;
+alter table metrics add constraint FKoeavrt14jhls0jhe4w4wnj0do foreign key (book_id) references book;
+alter table metrics add constraint FKbn5h7o0927d1l6pv8s826hkum foreign key (borrower_id) references borrower;

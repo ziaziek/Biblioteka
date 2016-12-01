@@ -1,0 +1,58 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+
+*= require grails
+*= require main
+*= require mobile
+
+*/
+
+body {
+    font-family: Verdana;
+}
+
+.menu{
+    margin-top: 5px;
+    width:100%;
+    background-color: #398439;
+    height: 50px;
+    color: White;
+    list-style: none;
+}
+
+.menu li{
+    display:inline;
+    width:25%;
+    height:100%;
+    margin: 0 auto;
+    float:left;
+    padding-left: 10px;
+    padding-top:10px;
+    font-size:30px;
+}
+
+.menu li a {
+    color:White;
+    text-decoration: none;
+}
+
+.createform {
+    margin-left:25%;
+}
+
+.createform label{
+    margin-left:10px;
+    padding: 10px 0px 10px 0px;
+}
+
+.createform input {
+    position: absolute;
+    left:190px;
+}

@@ -10,8 +10,8 @@ class BootStrap {
     def init = { servletContext -> 
         if(Environment.current==Environment.DEVELOPMENT){
             try{
-                new Book(title:'Thinking in Java', author:'Bruce Eckel', year:2000, regnumber:'9788324631766').save()
-                new Book(title:'Eksploracja danych', author:'David Hand', year:2000, regnumber:'9788320430530').save()
+                new Book(title:'Thinking in Java', author:'Bruce Eckel', year:2000, regnumber:'9788324631766', jacket:'Short book description.').save()
+                new Book(title:'Eksploracja danych', author:'David Hand', year:2000, regnumber:'9788320430530', jacket:'A bit lonfer book description.').save()
                 new Borrower(firstName:'Adam', lastName:'Smith', regnumber: '991234522').save()
                 new Borrower(firstName:'Julien', lastName:'de Blanch', regnumber: '991238522').save() 
             } catch(ValidationException e){

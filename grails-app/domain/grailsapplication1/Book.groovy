@@ -8,6 +8,7 @@ class Book {
     static final String RETURN_ICON = 'book_locked_icon.jpg'
     
     static constraints = {
+        
     }
     
     SortedSet metrics
@@ -15,6 +16,6 @@ class Book {
     
     String title, author, image=AVAILABLE_ICON, act=AVAILABLE_ACTION_NAME
     int year
-    String regnumber
+    String regnumber, jacket=''
     
 }

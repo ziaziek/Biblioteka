@@ -14,10 +14,15 @@
     <body>
         <h1>${book.title} by ${book.author}</h1>
         <g:form action="save">
-            <label for="title">Title: </label><input type="text" name="title" value="${book.title}"/>
-            <label for="author">Author: </label><input type="text" name="author" value="${book.author}"/>
-            <label for="year">Year: </label><input type="text" name="year" value="${book.year}"/> 
-            <label for="regnumber">Reg. number: </label><input type="text" name="regnumber" value="${book.regnumber}"/>
+            <div style="width:60%; padding:10px 0px 10px 10px;">
+                <label for="title">Title: </label><input type="text" name="title" value="${book.title}"/>
+                <label for="author">Author: </label><input type="text" name="author" value="${book.author}"/>
+                <label for="year">Year: </label><input type="text" name="year" value="${book.year}"/> 
+                <label for="regnumber">Reg. number: </label><input type="text" name="regnumber" value="${book.regnumber}"/><br/>
+                Short description:<br/>
+                <g:textArea name="jacket" value="${book.jacket}" rows="10" cols="300" style="width:100%;"/><br/>
+            </div>
+            
             <input type="submit" value="Save"/>
             <input type="hidden" value="${book.id}" name="id"/>
         </g:form>

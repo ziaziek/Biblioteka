@@ -15,9 +15,9 @@
 </head>
 <body>
 <ul class="menu">
-    <li><g:link url="/">Home</g:link></li>
-    <li><a href="/book">Books</a></li>
-    <li><a href="/borrower">Borrowers</a></li>
+    <li><a href="<g:createLink controller="index" />">Home</a></li>
+    <li><a href="<g:createLink controller="book"/>">Books</a></li>
+    <li><a href="<g:createLink controller="borrower"/>">Borrowers</a></li>
 </ul>
 <h1>Library</h1>
     <g:layoutBody/>

@@ -23,7 +23,8 @@
            <table>
             <tr><th>First Name</th><th>Last Name</th><th>Edit</th><th>Show</th></tr>
             <g:each var="b" in="${borrowers}">
-                <tr><td>${b.firstName}</td><td>${b.lastName}</td><td><a href="/borrower/edit/${b.id}">Edit</a></td><td><a href="/borrower/show/${b.id}">Show</a></td></tr>
+                <tr><td>${b.firstName}</td><td>${b.lastName}</td><td><a href="<g:createLink action="edit" id="${b.id}"/>">Edit</a></td><td>
+                        <a href="<g:createLink action="show" id="${b.id}"/>">Show</a></td></tr>
             </g:each>
         </table> 
             </div>

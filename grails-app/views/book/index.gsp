@@ -25,12 +25,10 @@
                 <div style="max-height: 300px; overflow: auto; padding-top:10px;">
                     <table>         
                         <thead><th>Title</th><th>Author</th><th>Year</th><th>Status</th><th>Action</th><th>Show</th></thead>
-
                             <g:each in="${books}" var="book">
                             <tr><td>${book.title}</td><td>${book.author}</td><td>${book.year}</td><td><asset:image src="${book.image}" width="50px"/></td>
-                            <td><a href="/book/prepareBook/${book.id}">${book.act}</a></td><td><g:link action="show" id="${book.id}">Show</g:link></td></tr>
+                            <td><a href="<g:createLink action="prepareBook" id="${book.id}"/>">${book.act}</a></td><td><a href="<g:createLink action="show" id="${book.id}"/>">Show</a></td></tr>
                             </g:each>
-
                     </table>
                 </div>
                 <p>${bookCount}&nbsp;books listed.</p>

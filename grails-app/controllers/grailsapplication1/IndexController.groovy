@@ -12,4 +12,8 @@ class IndexController {
             redirect(url: searchService.regNumberSearch(params.number))
         }
     }
+    
+    def notfound(){
+        render(view:'index', model: [nf:'1'])
+    }
 }

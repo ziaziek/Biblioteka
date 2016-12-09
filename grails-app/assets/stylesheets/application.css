@@ -11,7 +11,7 @@
 *= require grails
 *= require main
 *= require mobile
-
+*= require bootstrap
 */
 
 body {
@@ -63,4 +63,9 @@ body {
     width:66%;
     border: 1px solid #009900;
     border-radius: 5px;
+}
+
+.error {
+    color:#b60808;
+    text-decoration: tomato;
 }

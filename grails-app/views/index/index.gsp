@@ -14,6 +14,9 @@
     </head>
     <body>
         <div style="margin-left: 30%; margin-top:15%;">
+            <g:if test="${nf!=null}">
+                <p class="error">The number you entered could not be found.<br/>Please try again.</p>
+            </g:if>
          <g:form action="find">
              <SPAN>Enter number:</span><br/>
              <input type="text" name="number" size="50" autofocus="true"/>

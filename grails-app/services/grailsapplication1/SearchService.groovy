@@ -16,7 +16,7 @@ class SearchService {
             return bookSearch(regNumber)
         }
         } else {
-            return '/'
+            return ''
         }
         
     }
@@ -26,7 +26,7 @@ class SearchService {
         if(bid!=null){
            return '/borrower/show/' +  bid.id
         } else {
-            return '/'
+            return '/index/notfound'
         }
         
     }
@@ -36,7 +36,7 @@ class SearchService {
         if(bid!=null){
             return '/book/show/'+bid.id
         } else {
-            return '/'
+            return '/index/notfound'
         }
         
     }

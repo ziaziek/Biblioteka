@@ -17,7 +17,7 @@ class BooksService {
             b.image=Book.RETURN_ICON
             u.addToBooks(b)
             //create metrics for the lendout
-            def m = new Metrics(lentoutOn: new Date(), borrower: u)
+            def m = new Metrics(lentoutOn: new Date(), borrower: u, expiryDate: calculateExpiryDate(new Date()))
             //m.save()
             b.addToMetrics(m)
             b.save()
@@ -39,5 +39,14 @@ class BooksService {
               }
               theBorrower.save()
               book.save()
+    }
+    
+    protected Date calculateExpiryDate(Date d){
+        String periodToReturn = Parameter.findByName(Parameter.MAX_RETURN_PERIOD).value
+        Calendar c = Calendar.getInstance()
+        c.set(d.getYear()+1900, d.getMonth(), d.getDate())
+        c.add(Calendar.DATE, Integer.valueOf(periodToReturn))
+        
+        return c.getTime()
     }
 }

@@ -40,12 +40,14 @@
               <table>
                 <tr>
                     <th>Lent out</th>
+                    <th>Return expiry date</th>
                     <th>Returned</th>
                     <th>By Who</th>
                 </tr>
                 <g:each in="${book.metrics}" var="m">
                     <tr>
                     <td>${m.lentoutOn}</td>
+                    <td>${m.expiryDate}</td>
                     <td>${m.returnedOn}</td>
                     <td>${m.borrower.firstName}&nbsp;${m.borrower.lastName}</td>
                 </tr>

@@ -18,4 +18,7 @@ class Book {
     int year
     String regnumber, jacket=''
     
+    def boolean isOverTimed(){
+        return metrics != null && !metrics.findAll{it.returnedOn==null && it.expiryDate < new Date()}.isEmpty()
+    }
 }

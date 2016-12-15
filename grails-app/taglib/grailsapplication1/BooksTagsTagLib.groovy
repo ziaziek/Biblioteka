@@ -20,11 +20,13 @@ class BooksTagsTagLib {
     
     def bookslist = {attrs, body ->
         def books = attrs.books
+        
         String s = '<div style="width:100%; float:left;">'+
                 '<table>'+
-                    '<tr><th>Tytuł</th><th>Autor</th><th>Data wydania</th><th>Status</th><th></th></tr>'
+                    '<tr><th>Tytuł</th><th>Autor</th><th>Data wydania</th><th>Status</th><th>Action</th><th>Show</th></tr>'
         for(Book book: books){
-            s+='<tr><td>'+book.title+'</td><td>'+book.author+'</td><td>'+book.year+'</td><td><asset:image src="'+book.image+'" width="50px"/></td><td><a href="/book/prepareBook/'+book.id+'">'+book.act+'</a></td></tr>'
+            s+='<tr><td>'+book.title+'</td><td>'+book.author+'</td><td>'+book.year+'</td><td><img src="'+resource(dir: "images", file: book.image)+'" width="50px"/></td><td><a href="'+createLink(controller:'book', action:'prepareBook', id: book.id)+'">'+book.act+'</a></td>'+
+            '<td><a href="'+createLink(controller: 'book', action: 'show', id: book.id)+'">Show</a></td></tr>'
         }
         s+='</table>'+
                 '<p>'+books.size()+'&nbsp;books listed.</p>'+

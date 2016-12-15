@@ -42,7 +42,7 @@ class BookController {
     def prolong(){
         def book = Book.get(params.id)
         if(book!=null){
-            bookService.prolongateBook(book)
+            booksService.prolongateBook(book)
         }
         redirect(action: 'index')
     }

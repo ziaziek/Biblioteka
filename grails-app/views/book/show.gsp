@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="layout" content="main"/>
+        
     </head>
     <body>
         <h1>${book.title} by ${book.author}</h1>
@@ -32,10 +33,7 @@
                 <input type="submit" value="Return book"/>
                 <input type="hidden" value="${book.id}" name="id"/>
                 </g:form>
-                <g:form action="prolong">
-                <input type="submit" value="Extend return date"/>
-                <input type="hidden" value="${book.id}" name="id"/>
-                </g:form> 
+                <button class="button_input" onclick="o();">Extend return date</button>
             </div>       
         </g:if>
         <div class="metrics">
@@ -62,5 +60,13 @@
                 <p>No history available for this book</p>
             </g:else>
         </div>
+        <div id="modal_confirm" style="display:none;">
+            This action will extend the return expiry date for this book.<br/>
+            Do you wish to continue?<br/><br/>
+            <g:form name="prolong" action="prolong">
+                <input type="hidden" value="${book.id}" name="id" />
+            </g:form> 
+        </div>
+        <asset:javascript src="bookshow"/>
     </body>
 </html>

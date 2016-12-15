@@ -12,6 +12,7 @@
 *= require main
 *= require mobile
 *= require bootstrap
+*= require jquery-ui/jquery-ui
 */
 
 body {
@@ -91,4 +92,18 @@ body {
     height: 100%;
     float:left;
     border-left: 1px solid #008000;
+}
+
+form input[type="submit"] {
+    background-color: #398439;
+    color: White;
+    border-color: White;
+    border-radius: 5px;
+}
+
+.button_input {
+    background-color: #398439;
+    color: White;
+    border-color: White;
+    border-radius: 5px;
 }

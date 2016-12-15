@@ -20,14 +20,14 @@ class BooksTagsTagLib {
     
     def bookslist = {attrs, body ->
         def books = attrs.books
-        String s = '<div style="width:50%; float:left;">'+
+        String s = '<div style="width:100%; float:left;">'+
                 '<table>'+
                     '<tr><th>Tytuł</th><th>Autor</th><th>Data wydania</th><th>Status</th><th></th></tr>'
         for(Book book: books){
-            s+='<tr><td>${book.title}</td><td>${book.author}</td><td>${book.year}</td><td><asset:image src="${book.image}" width="50px"/></td><td><a href="/book/prepareBook/${book.id}">${book.act}</a></td></tr>'
+            s+='<tr><td>'+book.title+'</td><td>'+book.author+'</td><td>'+book.year+'</td><td><asset:image src="'+book.image+'" width="50px"/></td><td><a href="/book/prepareBook/'+book.id+'">'+book.act+'</a></td></tr>'
         }
-                s+='</table>'+
-                '<p>${bookCount}&nbsp;books listed.</p>'+
+        s+='</table>'+
+                '<p>'+books.size()+'&nbsp;books listed.</p>'+
             '</div>'
         out<<s
     }
@@ -35,16 +35,35 @@ class BooksTagsTagLib {
     def searchbox = {attr ->
         StringBuilder sb = new StringBuilder()
         sb.append('<script type="text/javascript">')
-            sb.append('function clearText () {')
-            sb.append('if($(\'#'+attr.id+'\').val()==\'Search...\'){')
-            sb.append('$(\'#'+attr.id+'\').val("")');
-            sb.append('}}')
-            sb.append('function bringText(){')
-            sb.append('if($(\'#'+attr.id+'\').val()==\'\'){')
-            sb.append('$(\'#'+attr.id+'\').val("Search...");')
-            sb.append('}}')
+        sb.append('function clearText () {')
+        sb.append('if($(\'#'+attr.id+'\').val()==\'Search...\'){')
+        sb.append('$(\'#'+attr.id+'\').val("")');
+        sb.append('}}')
+        sb.append('function bringText(){')
+        sb.append('if($(\'#'+attr.id+'\').val()==\'\'){')
+        sb.append('$(\'#'+attr.id+'\').val("Search...");')
+        sb.append('}}')
         sb.append('</script>')
         sb.append('<input id="'+attr.id+'" type="text" value="Search..." name="search" style="width:50%" onclick="clearText();" onblur="bringText();"/>')
         out<<sb.toString()
     }
+    
+    def borrowerslist = {attrs, body ->
+        def borrowers = attrs.borrowers
+        StringBuilder sb = new StringBuilder()
+        sb.append('<table>')
+        sb.append('<tr><th>First Name</th><th>Last Name</th><th>Edit</th><th>Show</th></tr>')
+        if(borrowers!=null){
+            for(Borrower b: borrowers){
+                sb.append('<tr><td>'+b.firstName+'</td><td>'+b.lastName+'</td><td><a href="'+createLink(controller: 'borrower', action: 'edit', id: b.id)+'">Edit</a></td><td>'+
+                        '<a href="'+createLink(controller: 'borrower', action: 'show', id: b.id)+'">Show</a></td></tr>')
+            }
+        }
+        sb.append(' </table>' )
+        out << sb.toString() 
+    }
+            
+    
 }
+
+        

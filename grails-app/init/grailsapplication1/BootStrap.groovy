@@ -15,7 +15,7 @@ class BootStrap {
                 new Book(title:'Eksploracja danych', author:'David Hand', year:2000, regnumber:'9788320430530', jacket:'A bit lonfer book description.').save()
                 new Borrower(firstName:'Adam', lastName:'Smith', regnumber: '991234522').save()
                 new Borrower(firstName:'Julien', lastName:'de Blanch', regnumber: '991238522').save() 
-                new Parameter(name: Parameter.MAX_RETURN_PERIOD, value: '30').save()
+                new Parameter(name: Parameter.MAX_RETURN_PERIOD, value: '0').save()
             } catch(ValidationException e){
                 print 'Error ocurred while initialisation of the application database.'
                 print e.getMessage()

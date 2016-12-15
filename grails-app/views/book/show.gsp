@@ -28,10 +28,14 @@
         </g:form>
         <g:if test="${book.act=='Return'}">
             <div style="padding: 10px 0px 0px 10px;">
-                <g:form action="prepareBook">
+                <g:form action="prepareBook" style="float:left;padding-right: 10px;">
                 <input type="submit" value="Return book"/>
                 <input type="hidden" value="${book.id}" name="id"/>
-            </g:form> 
+                </g:form>
+                <g:form action="prolong">
+                <input type="submit" value="Extend return date"/>
+                <input type="hidden" value="${book.id}" name="id"/>
+                </g:form> 
             </div>       
         </g:if>
         <div class="metrics">

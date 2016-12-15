@@ -39,6 +39,14 @@ class BookController {
         }
     }
     
+    def prolong(){
+        def book = Book.get(params.id)
+        if(book!=null){
+            bookService.prolongateBook(book)
+        }
+        redirect(action: 'index')
+    }
+    
     def lendOut(){
         booksService.lendOutBook(Integer.valueOf(params['book']), Integer.valueOf(params['userId']))
         redirect(action:'index')

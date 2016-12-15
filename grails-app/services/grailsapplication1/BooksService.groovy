@@ -41,6 +41,14 @@ class BooksService {
               book.save()
     }
     
+    def prolongateBook(Book book){
+        if(book.metrics != null){
+            def m = book.metrics.last()
+            m.expiryDate = calculateExpiryDate(new Date())
+            m.save()
+        }
+    }
+    
     protected Date calculateExpiryDate(Date d){
         String periodToReturn = Parameter.findByName(Parameter.MAX_RETURN_PERIOD).value
         Calendar c = Calendar.getInstance()

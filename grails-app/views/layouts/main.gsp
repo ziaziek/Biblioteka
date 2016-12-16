@@ -7,14 +7,13 @@
             <g:layoutTitle default="Grails"/>
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
     <asset:stylesheet src="application.css"/>
+    <link href="/assets/application.less" type="text/css" rel="stylesheet/less"/>    
     <asset:javascript src="application.js"/>
-
     <g:layoutHead/>
 </head>
 <body>
-    <ul class="menu">
+    <ul class="menu ui-widget-header">
         <li><a href="<g:createLink controller="index" />">Home</a></li>
         <li><a href="<g:createLink controller="book"/>">Books</a></li>
         <li><a href="<g:createLink controller="borrower"/>">Borrowers</a></li>

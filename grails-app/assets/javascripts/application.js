@@ -8,6 +8,7 @@
 //
 //= require jquery-3.1.1.min
 //= require jquery-ui.min
+//= require less.min
 //= require_self
 
 

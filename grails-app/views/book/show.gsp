@@ -24,16 +24,16 @@
                 <g:textArea name="jacket" value="${book.jacket}" rows="10" cols="300" style="width:100%;"/><br/>
             </div>
             
-            <input type="submit" value="Save"/>
+            <input class="ui-button" type="submit" value="Save"/>
             <input type="hidden" value="${book.id}" name="id"/>
         </g:form>
         <g:if test="${book.act=='Return'}">
             <div style="padding: 10px 0px 0px 10px;">
                 <g:form action="prepareBook" style="float:left;padding-right: 10px;">
-                <input type="submit" value="Return book"/>
+                <input class="ui-button" type="submit" value="Return book"/>
                 <input type="hidden" value="${book.id}" name="id"/>
                 </g:form>
-                <button class="button_input" onclick="o();">Extend return date</button>
+                <button class="ui-button" onclick="o();">Extend return date</button>
             </div>       
         </g:if>
         <div class="metrics">

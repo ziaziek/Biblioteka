@@ -22,7 +22,7 @@
             <label for="title">Title:</label><input type="text" name="title"/><br/>
             <label for="year">Year:</label><input type="text" name="year"/><br/>
             <label for="regnumber">Reg number:</label><input type="text" name="regnumber"/><br/>
-            <input type="submit" value="Save"/>
+            <input class="ui-button" type="submit" value="Save"/>
             </fieldset>
             
         </g:form>

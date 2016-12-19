@@ -30,7 +30,7 @@ class BooksTagsTagLib {
             s+=book.title+'</span></td><td>'+book.author+'</td><td>'+book.year+'</td><td><img src="'+resource(dir: "images", file: book.image)+'" width="50px"/></td><td><a href="'+createLink(controller:'book', action:'prepareBook', id: book.id)+'">'+book.act+'</a></td>'+
             '<td><a href="'+createLink(controller: 'book', action: 'show', id: book.id)+'">Show</a></td><TD>'
             if(book.isOverTimed()){
-                s+='<img src="'+resource(dir: 'images', file: 'excl_mark.jpg')+'" width="30px" title="This book should have already been returned."/>'
+                s+='<img src="'+resource(dir: 'images', file: 'excl_mark.png')+'" width="30px" title="This book should have already been returned."/>'
             }
             s+='</TD></tr>'
         }

@@ -1,7 +1,7 @@
 package grailsapplication1
 
 import grails.test.mixin.TestFor
-import grailapplication1.Metrics
+import grailsapplication1.Metrics
 import spock.lang.Specification
 
 /**

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+
+$('#entryDate').datepicker({dateFormat: 'yy-mm-dd'});
+
 function o(){
     $('#modal_confirm').dialog({modal:'true',
     buttons:{

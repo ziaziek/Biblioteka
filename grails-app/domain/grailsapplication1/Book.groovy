@@ -8,7 +8,7 @@ class Book {
     static final String RETURN_ICON = 'book_locked_icon.png'
     
     static constraints = {
-        
+        endDate nullable: true
     }
     
     SortedSet metrics
@@ -17,6 +17,7 @@ class Book {
     String title, author, image=AVAILABLE_ICON, act=AVAILABLE_ACTION_NAME
     int year
     String regnumber, jacket=''
+    Date entryDate, endDate
     
     def boolean isOverTimed(){
         return metrics != null && !metrics.findAll{it.returnedOn==null && it.expiryDate < new Date()}.isEmpty()

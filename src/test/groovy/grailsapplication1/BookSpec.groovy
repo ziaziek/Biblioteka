@@ -18,6 +18,7 @@ class BookSpec extends Specification {
 
     void "test params"(){
         def b = new Book()
-       expect: [b.year==0, b.author==null, b.title==null, b.regnumber==0]
+        b.entryDate = Date.parse('yyyy-MM-dd', '2016-06-01')
+       expect: [b.year==0, b.author==null, b.title==null, b.regnumber==0, b.entryDate.getMonth()==6, b.endDate==null]
     }
 }

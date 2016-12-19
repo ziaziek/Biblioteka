@@ -5,6 +5,9 @@ class IndexController {
     def searchService
     
     def index() { 
+        if(session['loggedin']!=1){
+            redirect(controller:'login')
+        }
     }
     
     def find(){

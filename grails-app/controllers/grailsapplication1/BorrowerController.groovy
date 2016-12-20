@@ -1,5 +1,8 @@
 package grailsapplication1
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class BorrowerController {
 
     def borrowerService

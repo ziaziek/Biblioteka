@@ -2,15 +2,13 @@ package grailsapplication1
 
 import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class IndexController {
 
     def searchService
     
-    @Secured('ROLE_ADMIN')
+    
     def index() { 
-//        if(session['loggedin']!=1){
-//            redirect(controller:'login')
-//        }
     }
     
     def find(){

@@ -20,7 +20,8 @@
         <li><a href="<g:createLink controller="report"/>">Reports</a></li>
         <li><a href="<g:createLink controller="administration"/>">Administration</a></li>    
     </ul>
-    <h1>Library</h1>
+        <h1>Library</h1>
+        <span style="float:right;"><g:link controller="logout">Logout</g:link></span>
         <g:layoutBody/>
 
 </body>

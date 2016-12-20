@@ -6,11 +6,21 @@ class BooksTagsTagLib {
     
     def borrower = { attrs, body ->
         if(attrs.var!=null){
+            String endDate='N/A'
+            if(attrs.var.endDate!=null){
+                endDate=attrs.var.endDate
+            }
             String outStr = '<div>'
             outStr += '<label for="firstName">First name</label><input type=\"text\" name="firstName" value="'+attrs.var.firstName+'"/><br/>'+
             '<label for="lastName">Last name</label><input type="text" name="lastName" value="'+attrs.var.lastName+'"/><br/>'+
             '<label for="regnumber">Registration number<input type="text" name="regnumber" value="'+attrs.var.regnumber+'"/><br/>'+
-            '<input type="hidden" name="id" value="'+attrs.var.id+'"/><br/>'
+            '<label for="registrationDate">Registration date:<input id="borrowerRegistrationDate" type="text" name="registrationDate" value="'+attrs.var.registrationDate+'"'
+            if(attrs.var.id>0){
+                outStr+=' readonly="true" '
+            }
+            outStr+='/><br/>'
+            outStr+='End date:&nbsp;<span>'+endDate+'</span><br/>'
+            '<input type="hidden" name="id" value="'+attrs.var.id+'"/><br/><br/>'
             out<<outStr            
         } else {
             out << "<div>No borrower object provided.</div>"

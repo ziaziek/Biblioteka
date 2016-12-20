@@ -19,7 +19,7 @@
                 <g:borrower var="${b}"/>
                 <input type="submit" value="Save"/>
             </fieldset>
-
         </g:form>
+        <script>$('#borrowerRegistrationDate').datepicker({dateFormat: 'yy-mm-dd'});</script>
     </body>
 </html>

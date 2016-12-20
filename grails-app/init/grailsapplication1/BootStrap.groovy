@@ -17,6 +17,14 @@ class BootStrap {
                 new Borrower(firstName:'Julien', lastName:'de Blanch', regnumber: '991238522', registrationDate: Date.parse('yyyy-MM-dd', '2016-02-01')).save() 
                 new Parameter(name: Parameter.MAX_RETURN_PERIOD, displayName:'Return extension period', value: '0', unit:'days').save()
                 new Parameter(name: 'ghfhgf', displayName:'Return extension period gfhfghgf', value: '0').save()
+                def adminRole = new Role(authority: 'ROLE_ADMIN').save()
+                def user = new User(username:'przemo', password: 'derek').save()
+                UserRole.create(user, adminRole)
+                UserRole.withSession {
+                    it.flush()
+                    it.clear()
+                }
+                
             } catch(ValidationException e){
                 print 'Error ocurred while initialisation of the application database.'
                 print e.getMessage()

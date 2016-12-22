@@ -7,12 +7,12 @@
 
 $('#entryDate').datepicker({dateFormat: 'yy-mm-dd'});
 
-function o(){
-    $('#modal_confirm').dialog({modal:'true',
+function o(action){
+    $('#modal_'+action+'_confirm').dialog({modal:'true',
     buttons:{
         "Yes" :function(){
             $(this).dialog("close");
-            $('#prolong').submit();
+            $('#'+action).submit();
         },
         "No" : function(){
             $(this).dialog("close");

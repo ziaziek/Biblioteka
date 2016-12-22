@@ -72,4 +72,9 @@ class BookController {
         redirect(action:'index')
     }
 
+    def deactivate(){
+        def b = Book.get(params.id)
+        booksService.deactivateBook(b, new Date())
+        redirect(action:'show', id: params.id)
+    }
 }

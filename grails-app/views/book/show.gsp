@@ -36,9 +36,13 @@
                 <input class="ui-button" type="submit" value="Return book"/>
                 <input type="hidden" value="${book.id}" name="id"/>
                 </g:form>
-                <button class="ui-button" onclick="o();">Extend return date</button>
-            </div>       
+                <button class="ui-button" onclick="o('prolong');">Extend return date</button>            
+            </div>   
         </g:if>
+        <g:if test="${book.endDate==null}">
+          <button class="ui-button" onclick="o('deactivate');">Deactivate book</button>  
+        </g:if>   
+        
         <div class="metrics">
             <h1>Book lending history</h1>
             <g:if test="${book.metrics!=null && !book.metrics.isEmpty()}">
@@ -63,10 +67,17 @@
                 <p>No history available for this book</p>
             </g:else>
         </div>
-        <div id="modal_confirm" style="display:none;">
+        <div id="modal_prolong_confirm" style="display:none;">
             This action will extend the return expiry date for this book.<br/>
             Do you wish to continue?<br/><br/>
             <g:form name="prolong" action="prolong">
+                <input type="hidden" value="${book.id}" name="id" />
+            </g:form> 
+        </div>
+        <div id="modal_deactivate_confirm" style="display:none;">
+            This action will permanently deactivate this book.<br/>
+            Do you wish to continue?<br/><br/>
+            <g:form name="deactivate" action="deactivate">
                 <input type="hidden" value="${book.id}" name="id" />
             </g:form> 
         </div>

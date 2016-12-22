@@ -6,6 +6,7 @@ class Book {
     static final String RETURN_ACTION_NAME = 'Return'
     static final String AVAILABLE_ICON = 'book_icon.png'
     static final String RETURN_ICON = 'book_locked_icon.png'
+    static final String DEACTIVATED_ICON = 'book_inactive_icon.png'
     
     static constraints = {
         endDate nullable: true

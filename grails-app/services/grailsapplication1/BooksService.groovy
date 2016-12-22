@@ -49,6 +49,14 @@ class BooksService {
         }
     }
     
+    def deactivateBook(Book book, Date date){
+        if(book!=null && date!=null){
+            book.endDate = date
+            book.image = Book.DEACTIVATED_ICON
+            book.save()
+        }
+    }
+    
     protected Date calculateExpiryDate(Date d){
         String periodToReturn = Parameter.findByName(Parameter.MAX_RETURN_PERIOD).value
         Calendar c = Calendar.getInstance()

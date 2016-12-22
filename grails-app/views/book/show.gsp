@@ -21,6 +21,9 @@
                 <label for="year">Year: </label><input type="text" name="year" value="${book.year}"/> 
                 <label for="regnumber">Reg. number: </label><input type="text" name="regnumber" value="${book.regnumber}"/>
                 <label for="entryDate">Entry date: </label><input id="entryDate" type="text" name="entryDate" value="${book.entryDate}"/>
+                <g:if test="${book.endDate!=null}">
+                    <label for="endDate">Deactivation date: </label><input id="endDate" type="text" name="endDate" value="${book.endDate}" readonly="true"/>
+                </g:if>    
                 <br/>
                 
                 Short description:<br/>

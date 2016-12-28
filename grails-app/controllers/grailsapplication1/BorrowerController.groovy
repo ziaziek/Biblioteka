@@ -47,4 +47,8 @@ class BorrowerController {
         redirect(action:'index')
     }
     
+    def deactivate(){
+        borrowerService.deactivateBorrower(Integer.valueOf(params.id))
+        redirect(action: 'index')
+    }
 }

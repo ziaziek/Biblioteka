@@ -10,13 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="layout" content="main"/>
+        <asset:javascript src="borrowershow"/>
         <title>Edit borrower</title>
     </head>
     <body>
         <h1>Edit borrower</h1>
-        <g:form action="save?id=${b.id}">
-            <g:borrower var="${b}"/>
-            <input type="submit" value="Save"/>
-        </g:form>
+        <g:if test="${b.endDate==null}">
+          <g:render template="/tagLibTemplates/borrowerForm" bean="${b}" var="b"/>
+        </g:if>
+        <g:else>
+            <g:render template="/tagLibTemplates/inactiveBorrower" bean="${b}" var="b"/>
+        </g:else>
     </body>
 </html>

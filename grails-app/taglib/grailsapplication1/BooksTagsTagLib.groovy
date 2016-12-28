@@ -73,7 +73,11 @@ class BooksTagsTagLib {
         sb.append('<tr><th>First Name</th><th>Last Name</th><th>Edit</th><th>Show</th></tr>')
         if(borrowers!=null){
             for(Borrower b: borrowers){
-                sb.append('<tr><td>'+b.firstName+'</td><td>'+b.lastName+'</td><td><a href="'+createLink(controller: 'borrower', action: 'edit', id: b.id)+'">Edit</a></td><td>'+
+                String ss=""
+                if(b.endDate!=null){
+                    ss='style="background-color:Silver"'
+                }
+                sb.append('<tr '+ss+'><td>'+b.firstName+'</td><td>'+b.lastName+'</td><td><a href="'+createLink(controller: 'borrower', action: 'edit', id: b.id)+'">Edit</a></td><td>'+
                         '<a href="'+createLink(controller: 'borrower', action: 'show', id: b.id)+'">Show</a></td></tr>')
             }
         }

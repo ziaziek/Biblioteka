@@ -21,7 +21,9 @@
         <li><a href="<g:createLink controller="administration"/>">Administration</a></li>    
     </ul>
         <h1>Library</h1>
-        <span style="float:right;"><g:link controller="logout">Logout</g:link></span>
+        <sec:ifLoggedIn>
+          <span style="float:right;"><g:link controller="logout">Logout</g:link></span>  
+        </sec:ifLoggedIn>
         <g:layoutBody/>
 
 </body>
